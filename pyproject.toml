@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=83"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "monstruo"
+description = "Native KDE desktop management application for Arch Linux and CachyOS."
+version = "2026.1.0"
+readme = "README.md"
+license = "MIT"
+classifiers = [
+  "Development Status :: 4 - Alpha",
+  "Programming Language :: Python"
+]
+requires-python = ">=3.14,<3.15"
+dependencies = [
+    "PySide6>=6.11.1",
+]
+authors = [
+    { name = "Carlos Owens" },
+    { email = "carlos@example.com" }
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
