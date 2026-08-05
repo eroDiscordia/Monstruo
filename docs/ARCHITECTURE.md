@@ -13,10 +13,19 @@ Document the implemented architecture.
 src/
 └── monstruo/
     ├── __init__.py
+    ├── app.py
     ├── main.py
     └── views/
         ├── __init__.py
         └── main_window.py
+```
+
+## Application Lifecycle
+
+Application lifecycle management is defined in:
+
+```text
+src/monstruo/app.py
 ```
 
 ## Application Entry Point
