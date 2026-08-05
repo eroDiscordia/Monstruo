@@ -2,21 +2,13 @@
 
 from __future__ import annotations
 
-import sys
-
-from PySide6.QtWidgets import QApplication
-
-from monstruo.views.main_window import MainWindow
+from monstruo.app import Application
 
 
 def main() -> int:
     """Create and run the Monstruo application."""
-    application = QApplication(sys.argv)
-
-    window = MainWindow()
-    window.show()
-
-    return application.exec()
+    application = Application()
+    return application.run()
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 # Monstruo Developer Guide
 
-**Version:** 0.1.0
+**Version:** 1.0.0-alpha.1
 
 ## Purpose
 
