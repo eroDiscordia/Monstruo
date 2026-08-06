@@ -22,6 +22,9 @@ src/
     ├── controllers/
     │   ├── __init__.py
     │   └── main_controller.py
+    ├── models/
+    │   ├── __init__.py
+    │   └── application_model.py
     ├── services/
     │   ├── __init__.py
     │   └── logging_service.py
@@ -59,7 +62,17 @@ Responsibilities:
 The first controller is defined in:
 
 ```text
-src/monstruo/controllers/main_controller.py
+ApplicationModel
+MainWindow
+```
+
+
+## Model Layer
+
+The first model is defined in:
+
+```text
+src/monstruo/models/application_model.py
 ```
 
 ## Models and Controllers

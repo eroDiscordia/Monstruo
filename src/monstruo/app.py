@@ -10,6 +10,7 @@ from PySide6.QtWidgets import QApplication
 
 from monstruo.config.settings import Settings
 from monstruo.controllers.main_controller import MainController
+from monstruo.models.application_model import ApplicationModel
 from monstruo.services.logging_service import LoggingService
 from monstruo.views.main_window import MainWindow
 
@@ -28,12 +29,17 @@ class Application:
         self._configuration = self._settings.load()
 
         application_name = self._get_application_name(self._configuration)
+        self._model = ApplicationModel(name=application_name)
 
         self._application = QApplication(sys.argv)
-        self._application.setApplicationName(application_name)
+        self._application.setApplicationName(self._model.name)
 
-        self._window = MainWindow(title=application_name)
-        self._controller = MainController(window=self._window)
+        self._window = MainWindow()
+        self._controller = MainController(
+            model=self._model,
+            window=self._window,
+        )
+        self._controller.initialize_view()
 
         self._logger.info("Monstruo initialized")
 
@@ -44,7 +50,7 @@ class Application:
 
     @staticmethod
     def _get_application_name(configuration: dict[str, Any]) -> str:
-        """Read and validate the configured application name.
+        """Read the configured application name.
 
         Args:
             configuration: Loaded application configuration.
@@ -53,7 +59,7 @@ class Application:
             The configured application name.
 
         Raises:
-            ValueError: If the application name is missing or invalid.
+            ValueError: If the application section or name is invalid.
         """
         application = configuration.get("application")
 
@@ -64,9 +70,9 @@ class Application:
 
         name = application.get("name")
 
-        if not isinstance(name, str) or not name.strip():
+        if not isinstance(name, str):
             raise ValueError(
-                "Configuration value 'application.name' must be a non-empty string."
+                "Configuration value 'application.name' must be a string."
             )
 
-        return name.strip()
+        return name

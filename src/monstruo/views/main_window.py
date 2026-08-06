@@ -8,11 +8,6 @@ from PySide6.QtWidgets import QWidget
 class MainWindow(QWidget):
     """Blank top-level window for the Monstruo application."""
 
-    def __init__(self, title: str) -> None:
-        """Initialize the blank application window.
-
-        Args:
-            title: Text displayed in the native window title bar.
-        """
+    def __init__(self) -> None:
+        """Initialize the blank application window."""
         super().__init__()
-        self.setWindowTitle(title)
