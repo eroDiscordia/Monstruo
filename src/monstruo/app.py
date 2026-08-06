@@ -9,6 +9,7 @@ from typing import Any
 from PySide6.QtWidgets import QApplication
 
 from monstruo.config.settings import Settings
+from monstruo.controllers.main_controller import MainController
 from monstruo.services.logging_service import LoggingService
 from monstruo.views.main_window import MainWindow
 
@@ -30,13 +31,15 @@ class Application:
 
         self._application = QApplication(sys.argv)
         self._application.setApplicationName(application_name)
+
         self._window = MainWindow(title=application_name)
+        self._controller = MainController(window=self._window)
 
         self._logger.info("Monstruo initialized")
 
     def run(self) -> int:
         """Display the main window and start the Qt event loop."""
-        self._window.show()
+        self._controller.show_main_window()
         return self._application.exec()
 
     @staticmethod

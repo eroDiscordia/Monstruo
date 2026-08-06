@@ -15,6 +15,16 @@ src/
     ├── __init__.py
     ├── app.py
     ├── main.py
+    ├── config/
+    │   ├── __init__.py
+    │   ├── defaults.yaml
+    │   └── settings.py
+    ├── controllers/
+    │   ├── __init__.py
+    │   └── main_controller.py
+    ├── services/
+    │   ├── __init__.py
+    │   └── logging_service.py
     └── views/
         ├── __init__.py
         └── main_window.py
@@ -43,6 +53,14 @@ Responsibilities:
 ## View Layer
 
 `src/monstruo/views/main_window.py` defines the blank `MainWindow`.
+
+## Controller Layer
+
+The first controller is defined in:
+
+```text
+src/monstruo/controllers/main_controller.py
+```
 
 ## Models and Controllers
 
